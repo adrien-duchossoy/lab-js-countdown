@@ -38,8 +38,12 @@ function showToast(message) {
   // Your code goes here ...
   const toastCard = document.getElementById('toast')
   toastCard.classList.add("show")
-  setTimeout(() => {toastCard.classList.remove("show")}, 3000)
-
+  let timerToast = setTimeout(() => {toastCard.classList.remove("show")}, 3000)
+  const toastCloseBtn = document.getElementById('close-toast')
+  toastCloseBtn.addEventListener('click', () => {
+    clearTimeout(timerToast)
+    toastCard.classList.remove("show")
+  })
 
 
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
